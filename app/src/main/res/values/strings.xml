@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">To do List</string>
+    <string name="All">All</string>
+    <string name="Active">Active</string>
+    <string name="Done">Done</string>
+    <string name="input_text">해야할 일을 입력하세요.</string>
+    <string name="button">Save</string>
+</resources>
