@@ -3,20 +3,23 @@ package js.pekah.basictodolist.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
+import js.pekah.basictodolist.dao.TodoDao
 import js.pekah.basictodolist.database.TodoDatabase
 import js.pekah.basictodolist.dto.Todo
 import java.lang.IllegalStateException
+import javax.inject.Inject
 
 private const val DATABASE_NAME = "todo-database.db"
-class TodoRepository private constructor(context: Context){
 
+class TodoRepository @Inject constructor(private val todoDao: TodoDao){
+/*
     private val database: TodoDatabase = Room.databaseBuilder(
         context.applicationContext,
         TodoDatabase::class.java,
         DATABASE_NAME
     ).build()
-
-    private val todoDao = database.todoDao()
+*/
+//  private val todoDao = database.todoDao()
     private var allList: LiveData<MutableList<Todo>> = todoDao.getAllList()
     private var activeList: LiveData<MutableList<Todo>> = todoDao.getActiveList()
     private var doneList: LiveData<MutableList<Todo>> = todoDao.getDoneList()
@@ -46,7 +49,7 @@ class TodoRepository private constructor(context: Context){
     fun delete(dto: Todo) = todoDao.delete(dto)
 
     fun deleteAll() = todoDao.deleteAll()
-
+/*
     companion object {
         private var INSTANCE: TodoRepository?=null
 
@@ -61,4 +64,5 @@ class TodoRepository private constructor(context: Context){
             throw IllegalStateException("TodoRepository must be initialized")
         }
     }
+    */
 }

@@ -1,19 +1,22 @@
 package js.pekah.basictodolist.viewmodel
 
 import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import js.pekah.basictodolist.dto.Todo
 import js.pekah.basictodolist.repository.TodoRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TodoViewModel: ViewModel() {
+@HiltViewModel
+class TodoViewModel @Inject constructor(private val todoRepository: TodoRepository)
+: ViewModel() {
     val todoList: LiveData<MutableList<Todo>>
-    private val todoRepository: TodoRepository = TodoRepository.get()
     val allList: LiveData<MutableList<Todo>>
     val activeList: LiveData<MutableList<Todo>>
     val doneList: LiveData<MutableList<Todo>>
     val deleteList: LiveData<MutableList<Todo>>
-
+    //private val todoRepository: TodoRepository = TodoRepository.get()
 
     init {
         todoList = todoRepository.list()

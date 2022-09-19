@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import js.pekah.basictodolist.adapter.TodoAdapter
 import js.pekah.basictodolist.databinding.FragmentDeleteBinding
 import js.pekah.basictodolist.viewmodel.TodoViewModel
@@ -15,6 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class FragmentDelete: Fragment() {
 
     private lateinit var binding: FragmentDeleteBinding

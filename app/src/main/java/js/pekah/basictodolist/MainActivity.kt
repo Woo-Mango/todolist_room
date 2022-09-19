@@ -1,16 +1,14 @@
 package js.pekah.basictodolist
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import js.pekah.basictodolist.adapter.TodoAdapter
 import js.pekah.basictodolist.adapter.ViewPagerAdapter
 import js.pekah.basictodolist.databinding.ActivityMainBinding
@@ -20,6 +18,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var todoViewModel: TodoViewModel
@@ -43,13 +42,6 @@ class MainActivity : AppCompatActivity() {
         todoViewModel = ViewModelProvider(this)[TodoViewModel::class.java]
         todoAdapter = TodoAdapter(this)
 
-/*
-        todoViewModel.todoList.observe(this) {
-            todoAdapter.update(it)
-        }
-        binding.rvTodoList.layoutManager = LinearLayoutManager(this)
-        binding.rvTodoList.adapter = todoAdapter
-*/
         binding.button.setOnClickListener {
             val content = binding.input.text.toString()
             if (content.isNotEmpty()){
@@ -60,27 +52,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            /*
-            val intent = Intent(this, EditTodoActivity::class.java).apply {
-                putExtra("type", "ADD")
-            }
-            requestActivity.launch(intent)
-            */
         }
-/*
-        todoAdapter.setItemClickListener(object: TodoAdapter.ItemClickListener {
-            override fun onClick(view: View, position: Int, itemId: Long) {
-                CoroutineScope(Dispatchers.IO).launch {
-                    val todo = todoViewModel.getOne(itemId)
-                    val intent = Intent(this@MainActivity, EditTodoActivity::class.java).apply {
-                        putExtra("type", "EDIT")
-                        putExtra("item", todo)
-                    }
-                    requestActivity.launch(intent)
-                }
-            }
-        })
-*/
+
         todoAdapter.setItemCheckBoxClickListener(object: TodoAdapter.ItemCheckBoxClickListener {
             override fun onClick(view: View, position: Int, itemId: Long) {
                 CoroutineScope(Dispatchers.IO).launch {
@@ -118,26 +91,5 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-/*
-    private val requestActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            val todo = it.data?.getSerializableExtra("todo") as Todo
 
-            when(it.data?.getIntExtra("flag", -1)) {
-                0 -> {
-                    CoroutineScope(Dispatchers.IO).launch {
-                        todoViewModel.insert(todo)
-                    }
-                    Toast.makeText(this, "추가되었습니다.", Toast.LENGTH_SHORT).show()
-                }
-                1 -> {
-                    CoroutineScope(Dispatchers.IO).launch {
-                        todoViewModel.update(todo)
-                    }
-                    Toast.makeText(this, "수정되었습니다.", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-    }
-*/
 }
