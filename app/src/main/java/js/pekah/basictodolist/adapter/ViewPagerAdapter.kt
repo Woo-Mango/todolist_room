@@ -1,15 +1,9 @@
 package js.pekah.basictodolist.adapter
 
-import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import js.pekah.basictodolist.R
 import js.pekah.basictodolist.dto.Todo
 import js.pekah.basictodolist.fragment.FragmentActive
 import js.pekah.basictodolist.fragment.FragmentAll
@@ -17,7 +11,6 @@ import js.pekah.basictodolist.fragment.FragmentDelete
 import js.pekah.basictodolist.fragment.FragmentDone
 
 private const val NUM_TABS = 4
-
 
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {

@@ -1,12 +1,12 @@
 package js.pekah.basictodolist.repository
 
-import android.content.Context
+
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import js.pekah.basictodolist.dao.TodoDao
 import js.pekah.basictodolist.database.TodoDatabase
 import js.pekah.basictodolist.dto.Todo
-import java.lang.IllegalStateException
+
 import javax.inject.Inject
 
 private const val DATABASE_NAME = "todo-database.db"
