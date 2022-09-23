@@ -69,7 +69,6 @@ class MainActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.IO).launch {
                     val todo = todoViewModel.getOne(itemId)
                     todo.isDeleted = !todo.isDeleted
-                    //todo: delete method modify
                     todoViewModel.update(todo)
                 }
             }

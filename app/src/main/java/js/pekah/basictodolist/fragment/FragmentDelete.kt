@@ -33,6 +33,8 @@ class FragmentDelete: Fragment() {
         todoAdapter = TodoAdapter(requireActivity())
         binding.rvDelete.layoutManager = LinearLayoutManager(activity)
         binding.rvDelete.adapter = todoAdapter
+        binding.rvDeleteView.layoutManager = LinearLayoutManager(activity)
+        binding.rvDeleteView.adapter = todoAdapter
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

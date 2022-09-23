@@ -33,6 +33,8 @@ class FragmentDone: Fragment() {
         todoAdapter = TodoAdapter(requireActivity())
         binding.rvDone.layoutManager = LinearLayoutManager(activity)
         binding.rvDone.adapter = todoAdapter
+        binding.rvDoneView.layoutManager = LinearLayoutManager(activity)
+        binding.rvDoneView.adapter = todoAdapter
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

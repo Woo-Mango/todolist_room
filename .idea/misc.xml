@@ -24,6 +24,12 @@
         <entry key="..\:/Users/user/Downloads/basicTodoList-main/basicTodoList-main/app/src/main/res/layout/item_todo_list.xml" value="0.5744791666666667" />
         <entry key="..\:/Users/user/Downloads/basicTodoList-main/basicTodoList-main/app/src/main/res/layout/menu_option.xml" value="0.3071794871794872" />
         <entry key="..\:/Users/user/Downloads/basicTodoList-main/basicTodoList-main/app/src/main/res/menu/menu_option.xml" value="0.5744791666666667" />
+        <entry key="..\:/_todoList/todoList with room/app/src/main/res/layout/activity_main.xml" value="0.5517948717948717" />
+        <entry key="..\:/_todoList/todoList with room/app/src/main/res/layout/fragment_active.xml" value="0.5604166666666667" />
+        <entry key="..\:/_todoList/todoList with room/app/src/main/res/layout/fragment_all.xml" value="0.4231404958677686" />
+        <entry key="..\:/_todoList/todoList with room/app/src/main/res/layout/fragment_delete.xml" value="0.5744791666666667" />
+        <entry key="..\:/_todoList/todoList with room/app/src/main/res/layout/fragment_done.xml" value="0.5744791666666667" />
+        <entry key="..\:/_todoList/todoList with room/app/src/main/res/layout/item_todo_list.xml" value="0.5744791666666667" />
       </map>
     </option>
   </component>
