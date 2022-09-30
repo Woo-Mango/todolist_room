@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import js.pekah.basictodolist.adapter.TodoAdapter
 import js.pekah.basictodolist.adapter.ViewPagerAdapter
 import js.pekah.basictodolist.databinding.ActivityMainBinding
+import js.pekah.basictodolist.dialog.DialogProfile
 import js.pekah.basictodolist.dto.Todo
 import js.pekah.basictodolist.viewmodel.TodoViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val tabTitleArray = arrayOf("All", "Active", "Done", "Delete")
+        val tabTitleArray = arrayOf("All", "Active", "Done", "Delete","Profile")
         val tabLayout = binding.tabLayout
 
         val viewPager = binding.vpTodo
@@ -84,8 +85,25 @@ class MainActivity : AppCompatActivity() {
         when(item?.itemId) {
             R.id.menu_item_delete -> {
                 Toast.makeText(this, "전체 삭제되었습니다.", Toast.LENGTH_SHORT).show()
-                    todoViewModel.deleteAll()
+                todoViewModel.deleteAll()
                 return true
+            }
+            R.id.profile -> {
+                Toast.makeText(this, "프로필 화면입니다.",Toast.LENGTH_SHORT).show()
+                val dialogview = DialogProfile(this)
+                dialogview.start()
+
+                //DialogProfile()
+
+                /*AlertDialog.Builder(this).setView(R.layout.user_profile).show().also { alertDialog ->
+                    if(alertDialog == null) {
+                        return@also
+                    }
+                    btnFollow.setOnClickListener {
+                        alertDialog.dismiss()
+                    }
+                }
+                */
             }
         }
         return super.onOptionsItemSelected(item)

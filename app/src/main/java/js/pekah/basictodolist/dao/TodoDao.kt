@@ -3,6 +3,8 @@ package js.pekah.basictodolist.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import js.pekah.basictodolist.dto.Todo
+import kotlinx.coroutines.flow.Flow
+
 
 @Dao
 interface TodoDao {
@@ -27,6 +29,9 @@ interface TodoDao {
 
     @Query("select * from todoTable where id = (:id)")
     fun selectOne(id: Long): Todo
+
+    @Query("select * from todoTable order by id desc")
+    fun desclist(): Flow<List<Todo>>
 
     @Update
     suspend fun update(dto: Todo)

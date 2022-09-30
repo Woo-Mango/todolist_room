@@ -2,10 +2,9 @@ package js.pekah.basictodolist.repository
 
 
 import androidx.lifecycle.LiveData
-import androidx.room.Room
 import js.pekah.basictodolist.dao.TodoDao
-import js.pekah.basictodolist.database.TodoDatabase
 import js.pekah.basictodolist.dto.Todo
+import kotlinx.coroutines.flow.Flow
 
 import javax.inject.Inject
 
@@ -37,6 +36,8 @@ class TodoRepository @Inject constructor(private val todoDao: TodoDao){
     fun getDeleteList(): LiveData<MutableList<Todo>> {
         return deleteList
     }
+
+    fun desclist(): Flow<List<Todo>> = todoDao.desclist()
 
     fun list(): LiveData<MutableList<Todo>> = todoDao.list()
 

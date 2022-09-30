@@ -5,10 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import js.pekah.basictodolist.dto.Todo
-import js.pekah.basictodolist.fragment.FragmentActive
-import js.pekah.basictodolist.fragment.FragmentAll
-import js.pekah.basictodolist.fragment.FragmentDelete
-import js.pekah.basictodolist.fragment.FragmentDone
+import js.pekah.basictodolist.fragment.*
 
 private const val NUM_TABS = 4
 

@@ -6,9 +6,11 @@ import js.pekah.basictodolist.dto.Todo
 import js.pekah.basictodolist.repository.TodoRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+
 
 @HiltViewModel
 class TodoViewModel @Inject constructor(private val todoRepository: TodoRepository)
@@ -19,8 +21,7 @@ class TodoViewModel @Inject constructor(private val todoRepository: TodoReposito
     val doneList: LiveData<MutableList<Todo>>
     val deleteList: LiveData<MutableList<Todo>>
 
-    private val _stateFlow = MutableStateFlow(200)
-    val allstate = _stateFlow.asStateFlow()
+    //val stateFlow : StateFlow<Todo>
     //private val todoRepository: TodoRepository = TodoRepository.get()
 
     init {
@@ -29,7 +30,13 @@ class TodoViewModel @Inject constructor(private val todoRepository: TodoReposito
         activeList = todoRepository.getActiveList()
         doneList = todoRepository.getDoneList()
         deleteList = todoRepository.getDeleteList()
+
+        //val initial = todoList
+        //stateFlow = MutableStateFlow(initial)
     }
+
+
+
 
     fun getOne(id: Long) = todoRepository.getTodo(id)
 
