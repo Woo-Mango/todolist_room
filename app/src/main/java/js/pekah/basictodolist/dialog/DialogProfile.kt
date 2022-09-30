@@ -10,9 +10,6 @@ import androidx.lifecycle.ViewModel
 import js.pekah.basictodolist.R
 import js.pekah.basictodolist.databinding.UserProfileBinding
 
-
-
-
 class DialogProfile(private val context: AppCompatActivity) {
 
     private lateinit var binding : UserProfileBinding
@@ -22,9 +19,12 @@ class DialogProfile(private val context: AppCompatActivity) {
     private lateinit var messageButton : Button
     private lateinit var cancelButton : Button
 
+    private val viewModel = DialogViewModel()
 
     fun start(){
         binding = UserProfileBinding.inflate(context.layoutInflater)
+        binding.lifecycleOwner = context
+        binding.profile = viewModel
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(binding.root)
         dialog.setCancelable(false)
